@@ -1,0 +1,25 @@
+{
+  "name": "dotedit-website",
+  "version": "1.0.0",
+  "description": "DotEdit marketing website and documentation",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build:docs": "bash scripts/build-docs.sh",
+    "build": "npm run build:docs && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "keywords": [],
+  "author": "DotEdit",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  }
+}

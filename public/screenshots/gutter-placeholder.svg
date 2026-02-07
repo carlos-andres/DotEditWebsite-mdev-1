@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" fill="none">
+  <rect width="1100" height="700" rx="12" fill="#F1F5F9"/>
+  <rect x="1" y="1" width="1098" height="698" rx="11" stroke="#E2E8F0" stroke-width="2"/>
+  <!-- Title bar -->
+  <rect y="0" width="1100" height="40" rx="12" fill="#E2E8F0"/>
+  <rect y="12" width="1100" height="28" fill="#E2E8F0"/>
+  <circle cx="20" cy="20" r="6" fill="#EF4444"/>
+  <circle cx="40" cy="20" r="6" fill="#F59E0B"/>
+  <circle cx="60" cy="20" r="6" fill="#22C55E"/>
+  <!-- Center text -->
+  <text x="550" y="370" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#94A3B8">Gutter Transfer / Semantic Reorg View</text>
+</svg>
