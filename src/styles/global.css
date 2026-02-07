@@ -14,7 +14,7 @@
   --color-bg-subtle: #F8FAFC;
   --color-border: #E5E7EB;
 
-  --font-serif: 'Instrument Serif', serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
@@ -39,7 +39,9 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--color-accent);
   text-wrap: balance;
 }
 
