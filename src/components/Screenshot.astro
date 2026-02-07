@@ -3,9 +3,10 @@ interface Props {
   src: string;
   alt: string;
   class?: string;
+  priority?: boolean;
 }
 
-const { src, alt, class: className = '' } = Astro.props;
+const { src, alt, class: className = '', priority = false } = Astro.props;
 const webpSrc = src.replace(/\.png$/, '.webp');
 ---
 
@@ -22,8 +23,9 @@ const webpSrc = src.replace(/\.png$/, '.webp');
         width="1100"
         height="700"
         class="w-full h-auto"
-        loading="lazy"
-        decoding="async"
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        {...(priority ? { fetchpriority: "high" } : {})}
       />
     </picture>
   </div>
