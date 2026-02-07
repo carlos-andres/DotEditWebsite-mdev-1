@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+docs-src/book/
+public/docs/
+.DS_Store
+*.log
+
+# Override global gitignore — track these in this project
+!CLAUDE.md
+!.devwork/
+!.devwork/**
