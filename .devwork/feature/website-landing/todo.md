@@ -1,58 +1,59 @@
 # Todo: website-landing
 
 ## Phase 1: Scaffold
-- [ ] Init Astro 5 project
-- [ ] Install Tailwind CSS 4
-- [ ] Configure color system (CSS custom properties)
-- [ ] Configure dark mode (class strategy + prefers-color-scheme)
-- [ ] Load fonts (Instrument Serif, Inter, JetBrains Mono)
-- [ ] Create BaseLayout.astro (HTML shell, meta, OG tags)
-- [ ] Init mdBook in docs-src/
-- [ ] Create build-docs.sh script
-- [ ] Add .gitignore (node_modules, dist, public/docs, .devwork)
+- [x] Init Astro 5 project
+- [x] Install Tailwind CSS 4
+- [x] Configure color system (CSS custom properties)
+- [x] Configure dark mode (class strategy + prefers-color-scheme)
+- [x] Load fonts (Instrument Serif, Inter, JetBrains Mono)
+- [x] Create BaseLayout.astro (HTML shell, meta, OG tags)
+- [x] Init mdBook in docs-src/
+- [x] Create build-docs.sh script
+- [x] Add .gitignore (node_modules, dist, public/docs, .devwork)
 
 ## Phase 2: Landing Page Components
-- [ ] Nav (sticky, blur, dark mode toggle, responsive)
-- [ ] Hero (headline, subtext, CTAs, Homebrew copy button)
-- [ ] Hero Screenshot (parallax, shadow, scroll reveal)
-- [ ] Features Strip (3 cards, staggered reveal)
-- [ ] Second Screenshot + Caption
-- [ ] Trust Strip
-- [ ] Download CTA (repeated)
-- [ ] Footer
+- [x] Nav (sticky, blur, dark mode toggle, responsive)
+- [x] Hero (headline, subtext, CTAs, Homebrew copy button)
+- [x] Hero Screenshot (parallax, shadow, scroll reveal)
+- [x] Features Strip (3 cards, staggered reveal)
+- [x] Second Screenshot + Caption
+- [x] Trust Strip
+- [x] Download CTA (repeated)
+- [x] Footer
 
 ## Phase 3: Micro-Interactions
-- [ ] Custom cursor (dot, scale on hover, blend mode)
-- [ ] Scroll-triggered reveals (IntersectionObserver)
-- [ ] Background gradient shift (section colors)
-- [ ] Screenshot parallax + shadow mouse tracking
-- [ ] Copy dot sparkle animation
-- [ ] prefers-reduced-motion fallbacks for all above
+- [x] Custom cursor (dot, scale on hover, blend mode)
+- [x] Scroll-triggered reveals (IntersectionObserver)
+- [x] Background gradient shift (section colors)
+- [x] Screenshot parallax + shadow mouse tracking
+- [x] Copy dot sparkle animation
+- [x] prefers-reduced-motion fallbacks for all above
 
 ## Phase 4: Accessibility Audit
-- [ ] AAA contrast verification (all color pairs)
-- [ ] Semantic HTML landmarks
-- [ ] Keyboard navigation (tab order, focus-visible)
-- [ ] Screen reader testing (ARIA labels, live regions)
-- [ ] Skip-to-content link
-- [ ] Agent-skills web-design-guidelines audit
+- [x] AAA contrast verification (all color pairs)
+- [x] Semantic HTML landmarks
+- [x] Keyboard navigation (tab order, focus-visible)
+- [x] Screen reader testing (ARIA labels, live regions)
+- [x] Skip-to-content link
+- [x] Agent-skills web-design-guidelines audit
 
 ## Phase 5: Documentation
 - [ ] Write all 22 mdBook pages (from DotEdit phase0 docs)
-- [ ] SUMMARY.md table of contents
-- [ ] book.toml configuration
+- [x] SUMMARY.md table of contents
+- [x] book.toml configuration
 - [ ] Build and integrate into public/docs/
 
-## Phase 6: Screenshots
-- [ ] Create demo .env files in DotEdit app
-- [ ] Capture screenshot 1: side-by-side diff (light mode)
-- [ ] Capture screenshot 2: reorg/transfer (light mode)
+## Phase 6: Screenshots & Assets
+- [x] Create demo .env files in DotEdit app
+- [x] Capture screenshots (6 windowed + 5 transparent)
+- [x] Pick hero: 2-search-t.png (sequential diff + search)
+- [x] Pick second: 5-reorganize-modal-t.png (reorg workflow)
+- [x] Copy app icon SVG + generate favicon
 - [ ] Optimize to WebP with PNG fallback
-- [ ] (Optional) Dark mode variant
 
 ## Phase 7: Polish & Ship
 - [ ] Responsive testing (mobile, tablet, desktop)
 - [ ] Performance audit (Lighthouse 95+)
-- [ ] OG/meta tags for social sharing
-- [ ] Favicon + apple-touch-icon
+- [x] OG/meta tags for social sharing
+- [x] Favicon + apple-touch-icon
 - [ ] Final build → dist/ → upload to Siteground
