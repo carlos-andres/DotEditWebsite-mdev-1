@@ -136,3 +136,63 @@ code, pre, kbd {
   pointer-events: none;
   animation: sparkle-burst 0.4s ease-out forwards;
 }
+
+/* --- Custom Cursor --- */
+@media (pointer: fine) and (min-width: 1024px) {
+  .custom-cursor-enabled {
+    cursor: none;
+  }
+
+  .custom-cursor-enabled * {
+    cursor: none;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: normal;
+  will-change: transform;
+}
+
+.cursor-dot.hovering {
+  width: 40px;
+  height: 40px;
+  mix-blend-mode: difference;
+  background: #FFFFFF;
+}
+
+@media (pointer: coarse), (max-width: 1023px) {
+  .cursor-dot {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot {
+    display: none !important;
+  }
+
+  .custom-cursor-enabled,
+  .custom-cursor-enabled * {
+    cursor: auto !important;
+  }
+}
+
+/* --- Screenshot Parallax --- */
+[data-parallax] {
+  will-change: transform;
+}
+
+[data-parallax] img {
+  transition: box-shadow 0.15s ease-out;
+}

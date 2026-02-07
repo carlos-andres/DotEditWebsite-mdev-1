@@ -39,10 +39,16 @@ import Footer from '../components/Footer.astro';
   <!-- Footer -->
   <Footer />
 
-  <!-- Scroll reveal observer -->
+  <!-- Custom cursor element -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Micro-interactions: scroll reveal, parallax, cursor, shadow tracking -->
   <script>
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const isDesktop = window.innerWidth >= 1024;
 
+    // --- Scroll Reveal (IntersectionObserver) ---
     if (!prefersReduced) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -55,11 +61,91 @@ import Footer from '../components/Footer.astro';
         },
         { threshold: 0.15 }
       );
-
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     } else {
-      // Make all elements visible immediately
       document.querySelectorAll('.reveal').forEach((el) => el.classList.add('revealed'));
+    }
+
+    // --- Custom Cursor ---
+    if (!prefersReduced && !isCoarsePointer && isDesktop) {
+      document.body.classList.add('custom-cursor-enabled');
+      const cursor = document.getElementById('cursor-dot') as HTMLElement;
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      }, { passive: true });
+
+      // Hover detection for interactive elements
+      const interactiveSelectors = 'a, button, [role="button"], input, textarea, select, [tabindex]';
+
+      document.addEventListener('mouseover', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.closest(interactiveSelectors)) {
+          cursor?.classList.add('hovering');
+        }
+      });
+
+      document.addEventListener('mouseout', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.closest(interactiveSelectors)) {
+          cursor?.classList.remove('hovering');
+        }
+      });
+
+      // Smooth cursor movement via lerp at 60fps
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        if (cursor) {
+          cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+        }
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+    }
+
+    // --- Screenshot Parallax + Shadow Mouse Tracking ---
+    if (!prefersReduced) {
+      const parallaxElements = document.querySelectorAll('[data-parallax]');
+
+      // Parallax on scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            parallaxElements.forEach((el) => {
+              const element = el as HTMLElement;
+              const rect = element.getBoundingClientRect();
+              const center = rect.top + rect.height / 2;
+              const viewportCenter = window.innerHeight / 2;
+              const offset = (center - viewportCenter) * 0.15;
+              element.style.transform = `translateY(${offset}px)`;
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Shadow tracking on mouse move (desktop only)
+      if (!isCoarsePointer && isDesktop) {
+        document.addEventListener('mousemove', (e) => {
+          parallaxElements.forEach((el) => {
+            const img = el.querySelector('img');
+            if (!img) return;
+            const rect = img.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = ((e.clientX - cx) / window.innerWidth) * 3; // max 3px
+            const dy = ((e.clientY - cy) / window.innerHeight) * 3;
+            img.style.boxShadow = `${dx}px ${24 + dy}px 48px rgba(0,0,0,0.12), ${dx * 0.5}px ${8 + dy * 0.5}px 16px rgba(0,0,0,0.06)`;
+          });
+        }, { passive: true });
+      }
     }
   </script>
 </BaseLayout>
