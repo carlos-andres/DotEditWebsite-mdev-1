@@ -6,6 +6,13 @@ public/docs/
 .DS_Store
 *.log
 
+# Dev artifacts (screenshots, reports)
+/bug-*.png
+/responsive-*.png
+/modernize-*.png
+/docs-*.png
+/lighthouse-report*.json
+
 # Override global gitignore — track these in this project
 !CLAUDE.md
 !.devwork/
