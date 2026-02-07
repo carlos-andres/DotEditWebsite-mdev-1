@@ -195,5 +195,5 @@ code, pre, kbd {
 }
 
 [data-parallax] img {
-  transition: box-shadow 0.15s ease-out;
+  transition: transform 0.15s ease-out;
 }

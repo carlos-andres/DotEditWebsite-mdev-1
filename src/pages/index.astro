@@ -131,21 +131,7 @@ import Footer from '../components/Footer.astro';
         }
       }, { passive: true });
 
-      // Shadow tracking on mouse move (desktop only)
-      if (!isCoarsePointer && isDesktop) {
-        document.addEventListener('mousemove', (e) => {
-          parallaxElements.forEach((el) => {
-            const img = el.querySelector('img');
-            if (!img) return;
-            const rect = img.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = ((e.clientX - cx) / window.innerWidth) * 3; // max 3px
-            const dy = ((e.clientY - cy) / window.innerHeight) * 3;
-            img.style.boxShadow = `${dx}px ${24 + dy}px 48px rgba(0,0,0,0.12), ${dx * 0.5}px ${8 + dy * 0.5}px 16px rgba(0,0,0,0.06)`;
-          });
-        }, { passive: true });
-      }
+      // Shadow tracking on mouse move removed — transparent screenshots don't use box-shadow
     }
   </script>
 </BaseLayout>
