@@ -1,11 +1,65 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Screenshot from '../components/Screenshot.astro';
+import Features from '../components/Features.astro';
+import SecondScreenshot from '../components/SecondScreenshot.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import DownloadCTA from '../components/DownloadCTA.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout>
+  <Nav />
+
   <main id="main-content">
-    <section class="flex items-center justify-center min-h-screen">
-      <h1 class="text-4xl" style="font-family: var(--font-serif);">DotEdit</h1>
-    </section>
+    <!-- Hero -->
+    <Hero />
+
+    <!-- Hero Screenshot -->
+    <Screenshot
+      src="/screenshots/hero-placeholder.svg"
+      alt="DotEdit side-by-side diff view comparing staging and production environment files"
+    />
+
+    <!-- Features Strip -->
+    <Features />
+
+    <!-- Second Screenshot + Caption -->
+    <SecondScreenshot />
+
+    <!-- Trust Strip -->
+    <TrustStrip />
+
+    <!-- Download CTA -->
+    <DownloadCTA />
   </main>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- Scroll reveal observer -->
+  <script>
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReduced) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    } else {
+      // Make all elements visible immediately
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('revealed'));
+    }
+  </script>
 </BaseLayout>
