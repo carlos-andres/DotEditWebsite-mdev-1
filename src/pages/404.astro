@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Page not found">
+  <main class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <img
+      src="/apple-touch-icon.png"
+      alt=""
+      width="80"
+      height="80"
+      class="rounded-2xl mb-8"
+      aria-hidden="true"
+    />
+    <h1 class="text-[28px] md:text-[36px] tracking-[-0.02em] mb-2">
+      404: Page not found
+    </h1>
+    <p class="text-lg text-[var(--color-text-secondary)] mb-8">
+      The page you're looking for doesn't exist.
+    </p>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full
+             bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]
+             text-white text-[15px] font-medium
+             transition-colors duration-200
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2
+             focus-visible:ring-offset-[var(--color-bg)]"
+    >
+      Back to home
+    </a>
+  </main>
+</BaseLayout>
