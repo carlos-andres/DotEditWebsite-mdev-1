@@ -38,10 +38,10 @@
 - [x] Agent-skills web-design-guidelines audit
 
 ## Phase 5: Documentation
-- [ ] Write all 22 mdBook pages (from DotEdit phase0 docs)
+- [x] Write all 22 mdBook pages (from DotEdit phase0 docs)
 - [x] SUMMARY.md table of contents
 - [x] book.toml configuration
-- [ ] Build and integrate into public/docs/
+- [x] Build and integrate into public/docs/
 
 ## Phase 6: Screenshots & Assets
 - [x] Create demo .env files in DotEdit app
@@ -49,11 +49,11 @@
 - [x] Pick hero: 2-search-t.png (sequential diff + search)
 - [x] Pick second: 5-reorganize-modal-t.png (reorg workflow)
 - [x] Copy app icon SVG + generate favicon
-- [ ] Optimize to WebP with PNG fallback
+- [x] Optimize to WebP with PNG fallback
 
 ## Phase 7: Polish & Ship
-- [ ] Responsive testing (mobile, tablet, desktop)
-- [ ] Performance audit (Lighthouse 95+)
+- [x] Responsive testing (mobile, tablet, desktop)
+- [x] Performance audit (Lighthouse 98/100/100/100)
 - [x] OG/meta tags for social sharing
 - [x] Favicon + apple-touch-icon
 - [ ] Final build → dist/ → upload to Siteground

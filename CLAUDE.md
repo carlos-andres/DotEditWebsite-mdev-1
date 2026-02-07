@@ -2,12 +2,12 @@
 
 Read first: `.devwork/feature/website-landing/spec.md`
 
-## Resume Session
+## Status
 
-- **Implementation plan:** `~/.claude/plans/eager-finding-lark.md`
-- **Status:** Plan approved, Phase 1 scaffold not started
-- **To continue:** "Execute the plan at `~/.claude/plans/eager-finding-lark.md` — start with Phase 1 scaffold."
+- **All phases complete.** Ready for production deploy.
+- **Lighthouse:** 98 / 100 / 100 / 100
 - **Todo tracker:** `.devwork/feature/website-landing/todo.md`
+- **Status:** `.devwork/feature/website-landing/status.md`
 
 ## Quick Commands
 
@@ -40,7 +40,7 @@ cd docs-src && mdbook serve --open
 - **3 colors only:** Blue accent (`#2563EB` / `#60A5FA`) + Neutral grays + White/Black base
 - **WCAG AAA:** All text/bg pairs at 7:1+ contrast ratio
 - **Dark mode:** CSS custom properties, `class="dark"` on `<html>`, respects `prefers-color-scheme`
-- **2 fonts:** Instrument Serif (headlines) + Inter (body) + JetBrains Mono (code)
+- **2 fonts:** Bricolage Grotesque (headlines) + Inter (body) + JetBrains Mono (code)
 - **Reduced motion:** All animations gated behind `prefers-reduced-motion`
 - **Semantic HTML:** Landmarks, ARIA labels, skip-to-content, focus-visible
 

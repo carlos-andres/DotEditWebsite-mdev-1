@@ -1,7 +1,7 @@
 # Status: website-landing
 
 ## Current
-`[TODO]` Phase 5: Documentation (22 mdBook pages) + Phase 7: Polish & Ship
+`[DONE]` All phases complete. Ready for deploy.
 
 ## Completed
 - Brainstorming interview (2026-02-07)
@@ -11,7 +11,16 @@
 - Phase 2: Landing page components — Nav, Hero, Features, Footer, etc.
 - Phase 3: Micro-interactions — cursor, parallax, sparkle, scroll reveals
 - Phase 4: Accessibility audit — web-design-guidelines compliance
-- Phase 6: Screenshots + favicon + app icon integrated
+- Phase 5: Documentation — 22 mdBook pages (2,320 lines)
+- Phase 6: Screenshots + favicon + app icon + WebP optimization
+- Phase 7: Polish — Lighthouse 98/100/100/100, responsive tested
+- Bug fixes: screenshot card, headline font, custom 404
+
+## Lighthouse Scores
+- Performance: 98
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
 
 ## Next Action
-Write 22 mdBook documentation pages from DotEdit phase0 docs, then polish & ship.
+Deploy `dist/` to Siteground.
