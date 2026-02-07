@@ -65,6 +65,22 @@ public/                          # Static assets
 └── favicon, icons
 ```
 
+## Security
+
+- **npm audit:** 5 moderate (lodash in `@astrojs/check` — dev-only, not shipped)
+- **No secrets** in source code
+- **No `eval()`, `innerHTML`, or `document.write`** in client code
+- **Zero client-side JS libraries** — only inline vanilla JS
+- **No forms, APIs, or user input** — static HTML only
+- **External resources:** Google Fonts CDN only
+- **Recommended server headers** (configure in `.htaccess` after deploy):
+  ```apache
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "DENY"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  ```
+
 ## Design
 
 - 3 colors: Blue accent (#2563EB/#60A5FA) + neutrals + white/black
