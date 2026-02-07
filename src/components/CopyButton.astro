@@ -10,7 +10,6 @@ const { text, label = 'Copy to clipboard' } = Astro.props;
 <div class="copy-button-wrapper relative inline-flex">
   <button
     type="button"
-    aria-label={label}
     data-copy-text={text}
     class="copy-btn group relative inline-flex items-center gap-2 px-5 py-2.5
            border border-[var(--color-border)] rounded-full
