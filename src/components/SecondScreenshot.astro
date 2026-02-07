@@ -1,0 +1,37 @@
+---
+import Screenshot from './Screenshot.astro';
+---
+
+<section
+  class="py-24 px-6 bg-[var(--color-bg-subtle)]"
+  aria-labelledby="workflow-heading"
+>
+  <div class="mx-auto max-w-[1200px] flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+    <!-- Screenshot (60%) -->
+    <div class="w-full lg:w-[60%]">
+      <Screenshot
+        src="/screenshots/gutter-placeholder.svg"
+        alt="DotEdit gutter transfer view showing one-click value transfers between environment files"
+      />
+    </div>
+
+    <!-- Caption (40%) -->
+    <div class="w-full lg:w-[40%] reveal">
+      <h2
+        id="workflow-heading"
+        class="font-[family-name:var(--font-serif)] text-[28px] md:text-[36px] leading-[1.2] tracking-[-0.02em]
+               text-[var(--color-text)] mb-4"
+      >
+        Transfer values,<br/>not files
+      </h2>
+      <p class="text-lg leading-relaxed text-[var(--color-text-secondary)] mb-4">
+        Click the gutter arrow to move a value from one file to another.
+        Update existing keys or append new ones — without overwriting anything else.
+      </p>
+      <p class="text-base leading-relaxed text-[var(--color-text-secondary)]">
+        Semantic reorg groups your keys by prefix, so you can clean up scattered configs
+        into organized sections. Preview before applying.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+const features = [
+  {
+    title: 'Key-Based Diff',
+    description: 'Matches by key name, not line position. Reordered files compare correctly.',
+    icon: 'git-compare',
+  },
+  {
+    title: 'Gutter Transfers',
+    description: 'Move values between files with one click. Update existing keys or append new ones.',
+    icon: 'arrow-left-right',
+  },
+  {
+    title: 'Semantic Reorg',
+    description: 'Auto-group keys by prefix. Preview the layout before applying.',
+    icon: 'layout-list',
+  },
+];
+---
+
+<section
+  class="py-24 px-6"
+  aria-labelledby="features-heading"
+>
+  <h2 id="features-heading" class="sr-only">Features</h2>
+
+  <div class="mx-auto max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
+    {features.map((feature, i) => (
+      <div
+        class="reveal feature-card"
+        style={`--stagger-delay: ${i * 100}ms; transition-delay: var(--stagger-delay);`}
+      >
+        <!-- Icon -->
+        <div class="mb-4">
+          {feature.icon === 'git-compare' && (
+            <svg class="w-6 h-6 text-[var(--color-accent)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="18" r="3"/>
+              <circle cx="6" cy="6" r="3"/>
+              <path d="M6 21V9a9 9 0 0 0 9 9"/>
+              <path d="M18 3v12a9 9 0 0 1-9-9"/>
+            </svg>
+          )}
+          {feature.icon === 'arrow-left-right' && (
+            <svg class="w-6 h-6 text-[var(--color-accent)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 3 4 7l4 4"/>
+              <path d="M4 7h16"/>
+              <path d="m16 21 4-4-4-4"/>
+              <path d="M20 17H4"/>
+            </svg>
+          )}
+          {feature.icon === 'layout-list' && (
+            <svg class="w-6 h-6 text-[var(--color-accent)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="7" height="7" x="3" y="3" rx="1"/>
+              <rect width="7" height="7" x="3" y="14" rx="1"/>
+              <path d="M14 4h7"/>
+              <path d="M14 9h7"/>
+              <path d="M14 15h7"/>
+              <path d="M14 20h7"/>
+            </svg>
+          )}
+        </div>
+
+        <!-- Text -->
+        <h3 class="text-lg font-semibold text-[var(--color-text)] mb-2">
+          {feature.title}
+        </h3>
+        <p class="text-base leading-relaxed text-[var(--color-text-secondary)]">
+          {feature.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

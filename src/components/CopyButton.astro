@@ -1,0 +1,105 @@
+---
+interface Props {
+  text: string;
+  label?: string;
+}
+
+const { text, label = 'Copy to clipboard' } = Astro.props;
+---
+
+<div class="copy-button-wrapper relative inline-flex">
+  <button
+    type="button"
+    aria-label={label}
+    data-copy-text={text}
+    class="copy-btn group relative inline-flex items-center gap-2 px-5 py-2.5
+           border border-[var(--color-border)] rounded-full
+           font-[family-name:var(--font-mono)] text-sm
+           text-[var(--color-text-secondary)] hover:text-[var(--color-text)]
+           hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)]
+           transition-all duration-200
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2
+           focus-visible:ring-offset-[var(--color-bg)]"
+  >
+    <span class="copy-label">{text}</span>
+    <svg class="copy-icon w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+    </svg>
+    <svg class="check-icon hidden w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5"/>
+    </svg>
+  </button>
+  <!-- Live region for screen readers -->
+  <div class="sr-only" aria-live="polite" aria-atomic="true"></div>
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      const button = e.currentTarget as HTMLButtonElement;
+      const text = button.dataset.copyText || '';
+      const label = button.querySelector('.copy-label') as HTMLSpanElement;
+      const copyIcon = button.querySelector('.copy-icon') as SVGElement;
+      const checkIcon = button.querySelector('.check-icon') as SVGElement;
+      const liveRegion = button.closest('.copy-button-wrapper')?.querySelector('[aria-live]') as HTMLElement;
+
+      try {
+        await navigator.clipboard.writeText(text);
+
+        // Visual feedback
+        const originalText = label.textContent;
+        label.textContent = 'Copied!';
+        copyIcon.classList.add('hidden');
+        checkIcon.classList.remove('hidden');
+
+        // Screen reader announcement
+        if (liveRegion) liveRegion.textContent = 'Copied to clipboard';
+
+        // Sparkle burst (respects reduced motion)
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          spawnSparkles(button);
+        }
+
+        // Revert after 2s
+        setTimeout(() => {
+          label.textContent = originalText;
+          copyIcon.classList.remove('hidden');
+          checkIcon.classList.add('hidden');
+          if (liveRegion) liveRegion.textContent = '';
+        }, 2000);
+      } catch {
+        label.textContent = 'Failed to copy';
+        setTimeout(() => {
+          label.textContent = text;
+        }, 2000);
+      }
+    });
+  });
+
+  function spawnSparkles(origin: HTMLElement) {
+    const rect = origin.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const count = 8 + Math.floor(Math.random() * 4); // 8–12 dots
+
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'sparkle-dot';
+      const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+      const distance = 20 + Math.random() * 20; // 20–40px
+      dot.style.setProperty('--sparkle-x', `${Math.cos(angle) * distance}px`);
+      dot.style.setProperty('--sparkle-y', `${Math.sin(angle) * distance}px`);
+      dot.style.left = `${cx}px`;
+      dot.style.top = `${cy}px`;
+      dot.style.position = 'fixed';
+      dot.style.opacity = `${0.4 + Math.random() * 0.6}`;
+      dot.style.width = `${3 + Math.random()}px`;
+      dot.style.height = dot.style.width;
+      document.body.appendChild(dot);
+
+      dot.addEventListener('animationend', () => dot.remove());
+    }
+  }
+</script>

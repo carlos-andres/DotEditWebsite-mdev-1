@@ -1,0 +1,151 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+---
+
+<header
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300"
+  role="banner"
+>
+  <nav
+    class="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6"
+    aria-label="Main navigation"
+  >
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2.5 group" aria-label="DotEdit home">
+      <!-- Placeholder app icon -->
+      <div class="w-7 h-7 rounded-lg bg-[var(--color-accent)] flex items-center justify-center
+                  group-hover:scale-105 transition-transform duration-200">
+        <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+      <span class="text-[17px] font-semibold text-[var(--color-text)] tracking-[-0.02em]">
+        DotEdit
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-6">
+      <a
+        href="/docs/"
+        class="text-[15px] font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text)]
+               transition-colors duration-200"
+      >
+        Docs
+      </a>
+
+      <DarkModeToggle />
+
+      <a
+        href="#download"
+        class="inline-flex items-center gap-2 px-5 py-2 rounded-full
+               bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]
+               text-white text-[15px] font-medium
+               transition-colors duration-200
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2
+               focus-visible:ring-offset-[var(--color-bg)]"
+      >
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        Download
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg
+             text-[var(--color-text-secondary)] hover:text-[var(--color-text)]
+             hover:bg-[var(--color-bg-subtle)] transition-colors duration-200
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg class="hamburger-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="4" x2="20" y1="12" y2="12"/>
+        <line x1="4" x2="20" y1="6" y2="6"/>
+        <line x1="4" x2="20" y1="18" y2="18"/>
+      </svg>
+      <svg class="close-icon hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 6 6 18"/>
+        <path d="m6 6 12 12"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden absolute top-16 left-0 right-0 shadow-lg"
+    style="background-color: color-mix(in srgb, var(--color-bg) 95%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--color-border);"
+    role="menu"
+  >
+    <div class="flex flex-col gap-1 p-4">
+      <a
+        href="/docs/"
+        class="flex items-center px-4 py-3 rounded-lg text-[15px] font-medium
+               text-[var(--color-text-secondary)] hover:text-[var(--color-text)]
+               hover:bg-[var(--color-bg-subtle)] transition-colors duration-200"
+        role="menuitem"
+      >
+        Docs
+      </a>
+      <div class="flex items-center justify-between px-4 py-3">
+        <span class="text-[15px] font-medium text-[var(--color-text-secondary)]">Theme</span>
+        <DarkModeToggle />
+      </div>
+      <a
+        href="#download"
+        class="flex items-center justify-center gap-2 mx-4 mt-2 px-5 py-2.5 rounded-full
+               bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]
+               text-white text-[15px] font-medium
+               transition-colors duration-200"
+        role="menuitem"
+      >
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        Download for macOS
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Nav backdrop blur on scroll — uses CSS class defined in global.css
+  const nav = document.getElementById('site-nav');
+  let scrolled = false;
+
+  function updateNav() {
+    const isScrolled = window.scrollY > 16;
+    if (isScrolled !== scrolled) {
+      scrolled = isScrolled;
+      nav?.classList.toggle('scrolled', scrolled);
+    }
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = menuBtn?.querySelector('.hamburger-icon');
+  const closeIcon = menuBtn?.querySelector('.close-icon');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    hamburgerIcon?.classList.toggle('hidden', isOpen);
+    closeIcon?.classList.toggle('hidden', !isOpen);
+  });
+</script>
