@@ -13,7 +13,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style="color-scheme: light dark;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,6 +38,10 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Theme color for browser chrome -->
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)" />
 
     <!-- Dark mode FOUC prevention — runs before paint -->
     <script is:inline>
