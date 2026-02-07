@@ -49,6 +49,9 @@ import Footer from '../components/Footer.astro';
     const isDesktop = window.innerWidth >= 1024;
 
     // --- Scroll Reveal (IntersectionObserver) ---
+    // Add js-ready so CSS gates reveal animations (content visible without JS)
+    document.body.classList.add('js-ready');
+
     if (!prefersReduced) {
       const observer = new IntersectionObserver(
         (entries) => {

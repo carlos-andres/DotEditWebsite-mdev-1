@@ -7,7 +7,7 @@
 :root {
   --color-text: #111827;
   --color-text-secondary: #4B5563;
-  --color-text-muted: #9CA3AF;
+  --color-text-muted: #535D6B;
   --color-accent: #2563EB;
   --color-accent-hover: #1D4ED8;
   --color-bg: #FFFFFF;
@@ -60,13 +60,14 @@ code, pre, kbd {
 }
 
 /* --- Scroll Reveal Base --- */
-.reveal {
+/* Gate behind .js-ready so content is visible if JS hasn't loaded yet */
+.js-ready .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.reveal.revealed {
+.js-ready .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
