@@ -1,0 +1,9 @@
+[book]
+title = "DotEdit Documentation"
+authors = ["DotEdit"]
+language = "en"
+src = "src"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "ayu"
