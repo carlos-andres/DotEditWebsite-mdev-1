@@ -1,13 +1,24 @@
 # DotEdit Website
 
-Marketing website and documentation for [DotEdit](https://github.com/dotedit/dotedit), a native macOS app for comparing .env files side by side.
+Marketing website and documentation for [DotEdit](../DotEdit/), a native macOS app for comparing `.env` files side by side.
 
-## Stack
+## Tech Stack
 
-- **Astro 5** — static site generator
-- **Tailwind CSS 4** — utility-first styling
-- **mdBook** — documentation (`docs-src/`)
-- **Vanilla JS** — micro-interactions
+| Layer | Technology | Version |
+|-------|-----------|---------|
+| Framework | Astro | 5.17.1 |
+| CSS | Tailwind CSS | 4.1.18 |
+| Language | TypeScript | 5.9.3 (strict) |
+| Docs | mdBook | 0.5.2 |
+| Fonts | Google Fonts CDN | Bricolage Grotesque, Inter, JetBrains Mono |
+| Output | Static HTML/CSS/JS | Zero runtime |
+| Deploy | SFTP → Siteground | `dist/` → `public_html/` |
+
+## Requirements
+
+- Node.js 18+
+- npm
+- [mdBook](https://rust-lang.github.io/mdBook/) (for documentation build)
 
 ## Development
 
@@ -30,6 +41,9 @@ npm run build
 
 # 3. Preview production build locally
 npm run preview
+
+# Type check
+npm run check
 ```
 
 The `dist/` folder contains the final static files ready for upload.
@@ -44,26 +58,68 @@ npm run build:docs && npm run build
 # Target: public_html/ (or your configured document root)
 ```
 
+## Main Features
+
+### Landing Page
+- Single-page marketing site with 6 sections: Nav, Hero, Screenshot, Features, TrustStrip, DownloadCTA, Footer
+- Dark mode toggle with `prefers-color-scheme` respect and no-flash inline script
+- Micro-interactions: custom cursor, parallax screenshot, scroll reveals — all gated behind `prefers-reduced-motion`
+
+### Documentation
+- 22-page mdBook documentation (decoupled build pipeline)
+- Covers: getting started, features, file format reference, settings, FAQ
+- Built separately via `npm run build:docs` → served at `/docs/`
+
+### Accessibility & Performance
+- WCAG AAA compliance — all text/bg pairs at 7:1+ contrast ratio
+- Semantic HTML with landmarks, ARIA labels, skip-to-content, focus-visible
+- Lighthouse: 98 / 100 / 100 / 100
+- Zero client-side JS libraries — vanilla JS only
+
 ## Project Structure
 
 ```
-src/
-├── layouts/BaseLayout.astro     # HTML shell, fonts, meta, dark mode
-├── components/                  # Nav, Hero, Screenshot, Features, etc.
-├── pages/index.astro            # Landing page
-├── pages/404.astro              # Custom 404
-└── styles/global.css            # Color system, animations, cursor
-
-docs-src/                        # mdBook source (22 pages)
-├── src/SUMMARY.md
-├── src/{getting-started,features,file-format,settings,reference,faq}/
-└── book.toml
-
-public/                          # Static assets
-├── screenshots/                 # WebP + PNG fallback
-├── docs/                        # mdBook build output (gitignored)
-└── favicon, icons
+DotEditWebsite/
+├── src/
+│   ├── layouts/BaseLayout.astro     # HTML shell, fonts, meta, dark mode
+│   ├── components/                  # 9 Astro components
+│   │   ├── Nav.astro
+│   │   ├── Hero.astro
+│   │   ├── Screenshot.astro
+│   │   ├── Features.astro
+│   │   ├── TrustStrip.astro
+│   │   ├── DownloadCTA.astro
+│   │   ├── Footer.astro
+│   │   └── DarkModeToggle.astro
+│   ├── pages/
+│   │   ├── index.astro              # Landing page
+│   │   └── 404.astro                # Custom 404
+│   ├── styles/global.css            # Color system, animations, cursor
+│   └── assets/                      # Screenshots, demo envs, logo
+├── docs-src/                        # mdBook source (22 pages, ~2,392 lines)
+│   ├── src/SUMMARY.md
+│   ├── src/{getting-started,features,file-format,settings,reference,faq}/
+│   └── book.toml
+├── public/
+│   ├── screenshots/                 # WebP + PNG fallback
+│   ├── docs/                        # mdBook build output (gitignored)
+│   └── favicon, icons
+├── scripts/build-docs.sh            # mdBook build + copy
+├── astro.config.mjs
+├── tsconfig.json
+└── package.json
 ```
+
+## Design
+
+| Aspect | Detail |
+|--------|--------|
+| Colors | 3 only — Blue accent (`#2563EB` / `#60A5FA`) + neutrals + white/black |
+| Typography | Bricolage Grotesque (headlines) + Inter (body) + JetBrains Mono (code) |
+| Contrast | WCAG AAA — 7:1+ all text/bg pairs |
+| Dark mode | Class-based (`html.dark`) + CSS custom properties |
+| Motion | All animations gated behind `prefers-reduced-motion` |
+| Lighthouse | 98 / 100 / 100 / 100 |
 
 ## Security
 
@@ -81,9 +137,17 @@ public/                          # Static assets
   Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   ```
 
-## Design
+## Development Workflow
 
-- 3 colors: Blue accent (#2563EB/#60A5FA) + neutrals + white/black
-- Bricolage Grotesque (headlines) + Inter (body) + JetBrains Mono (code)
-- WCAG AAA contrast, semantic HTML, prefers-reduced-motion
-- Lighthouse: 98 / 100 / 100 / 100
+This project was developed using a structured AI-assisted workflow system for Claude Code.
+
+- **Spec-driven:** Full requirements specification before implementation
+- **Phase-based:** Systematic build from scaffold to production-ready
+- **Constitution:** Auto-generated tech stack document via `/constitution` scan
+- **All phases complete** — Lighthouse 98/100/100/100
+
+Workflow system: [github.com/carlos-andres/workflow-system](https://github.com/carlos-andres/workflow-system)
+
+## Related
+
+- **DotEdit App** — Native macOS app: [`DotEdit/`](../DotEdit/)

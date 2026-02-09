@@ -10,31 +10,9 @@
 
 DotEdit is a universal binary that runs natively on both Apple Silicon and Intel Macs.
 
-## Install via Homebrew
+## Download
 
-The recommended way to install DotEdit is through [Homebrew](https://brew.sh):
-
-```bash
-brew install --cask dotedit
-```
-
-To update to the latest version:
-
-```bash
-brew upgrade --cask dotedit
-```
-
-To uninstall:
-
-```bash
-brew uninstall --cask dotedit
-```
-
-## Download DMG
-
-You can also download DotEdit directly:
-
-1. Go to the [DotEdit releases page](https://github.com/your-org/dotedit/releases)
+1. Go to the [DotEdit releases page](https://github.com/carlos-andres/DotEdit/releases)
 2. Download the latest `.dmg` file
 3. Open the DMG and drag **DotEdit.app** into your Applications folder
 4. Eject the DMG
@@ -55,25 +33,9 @@ You should see the file selection screen with two drop zones — one for each `.
 
 ## Updating
 
-### Homebrew
-
-```bash
-brew upgrade --cask dotedit
-```
-
-### Manual (DMG)
-
 Download the latest DMG from the releases page and replace the existing app in your Applications folder. Your settings and recent files are preserved since they are stored in your user preferences, not inside the app bundle.
 
 ## Uninstalling
-
-### Homebrew
-
-```bash
-brew uninstall --cask dotedit
-```
-
-### Manual
 
 1. Drag **DotEdit.app** from your Applications folder to the Trash
 2. Optionally, remove preferences:
