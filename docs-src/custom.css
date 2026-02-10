@@ -1,0 +1,5 @@
+/* Fix ASCII art code blocks overflowing container */
+.content main pre {
+    overflow-x: auto;
+    max-width: 100%;
+}

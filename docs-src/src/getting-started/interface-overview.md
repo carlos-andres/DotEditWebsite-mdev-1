@@ -9,19 +9,19 @@ The entry point when you launch DotEdit.
 ### Layout
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│         LEFT PANEL            │       RIGHT PANEL       │
-│   ┌─────────────────────┐    │  ┌─────────────────────┐│
-│   │   Drop .env here    │    │  │   Drop .env here    ││
-│   └─────────────────────┘    │  └─────────────────────┘│
-│   /path/to/.env              │  /path/to/.env          │
-│   [Browse...]                │  [Browse...]            │
-│   ── Recent ──               │  ── Recent ──           │
-│   • ../.env.local            │  • ../.env.production   │
-│                              │                         │
-│               [ Compare ]                              │
-│                ⚙    ?                                  │
-└─────────────────────────────────────────────────────────┘
++----------------------------+----------------------------+
+|        LEFT PANEL          |       RIGHT PANEL          |
+|  +----------------------+  |  +----------------------+  |
+|  |   Drop .env here     |  |  |   Drop .env here     |  |
+|  +----------------------+  |  +----------------------+  |
+|  /path/to/.env             |  /path/to/.env             |
+|  [Browse...]               |  [Browse...]               |
+|  -- Recent --              |  -- Recent --              |
+|  * ../.env.local           |  * ../.env.production      |
+|                            |                            |
+|              [ Compare ]                                |
+|               [*]   ?                                   |
++---------------------------------------------------------+
 ```
 
 ### Elements
@@ -44,8 +44,8 @@ The main working screen, organized from top to bottom.
 The top bar with global controls, split into logical groups:
 
 ```
-(←)  Reorganize▾  Dedup▾  Comments▾  Collapse  │ Align  Sequential │ Ignore Case  │ wrap  #  12▾  │  ↻  ⚙  ?
-├─┤  ├──────── Operations ────────────────────┤ ├── Diff Modes ──┤ ├────────────┤  ├─ Display ─┤  ├ Utils ┤
+(<-)  Reorganize  Dedup  Comments  Collapse | Align  Sequential | Ignore Case | wrap  #  12 | reload [*] ?
+|--|  |---------- Operations --------------|  |-- Diff Modes --|  |-----------|  |- Display -|  |- Utils -|
 ```
 
 | Button | Function |
@@ -119,8 +119,8 @@ Below each panel, a centered action bar provides panel-specific controls:
 The bottom bar spanning the full width of the window:
 
 ```
-../.env (modified)  │  42 keys  │  3~  1«  2»  │  5 hidden  │  ⚠ 2  │  ../.env.prod
-├── Left file ──────┤  ├─ Keys ─┤  ├── Diff ──┤  ├ Collapsed ┤ ├Warn┤  ├── Right file ──┤
+../.env (modified)  |  42 keys  |  3~  1<  2>  |  5 hidden  | ! 2  |  ../.env.prod
+|-- Left file ------|  |- Keys -|  |-- Diff --|  | Collapsed | |Warn|  |-- Right file --|
 ```
 
 | Segment | Content |

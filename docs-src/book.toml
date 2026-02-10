@@ -7,3 +7,4 @@ src = "src"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "ayu"
+additional-css = ["custom.css"]
