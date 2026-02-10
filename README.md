@@ -1,6 +1,12 @@
 # DotEdit Website
 
-Marketing website and documentation for [DotEdit](../DotEdit/), a native macOS app for comparing `.env` files side by side.
+Marketing website and documentation for [DotEdit](https://github.com/carlos-andres/DotEdit), a native macOS app for comparing `.env` files side by side.
+
+## Links
+
+- **Live site:** [dotedit.app](https://dotedit.app)
+- **Documentation:** [dotedit.app/docs](https://dotedit.app/docs)
+- **Presentation:** [slides.dotedit.app](https://slides.dotedit.app)
 
 ## Tech Stack
 
