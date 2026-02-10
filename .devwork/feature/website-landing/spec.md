@@ -206,7 +206,7 @@ Single page, ~7 scroll sections at `max-width: 1200px` centered.
 
 ### 6.6 Trust Strip
 
-- Single centered line: "Native macOS · SwiftUI · 242 tests · Open source"
+- Single centered line: "Native macOS · SwiftUI · 250 tests · Open source"
 - Inter 14px, `--color-text-muted`
 - Optional: GitHub stars badge via `shields.io`
 - Separator: thin `1px` top border in `--color-border`
