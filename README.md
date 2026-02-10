@@ -156,4 +156,4 @@ Workflow system: [github.com/carlos-andres/workflow-system](https://github.com/c
 
 ## Related
 
-- **DotEdit App** — Native macOS app: [`DotEdit/`](../DotEdit/)
+- **DotEdit App** — Native macOS app: [github.com/carlos-andres/DotEdit](https://github.com/carlos-andres/DotEdit)
