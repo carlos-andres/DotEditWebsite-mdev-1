@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Terms of Use — DotEdit">
+  <main id="main-content" class="py-32 px-6">
+    <article class="mx-auto max-w-[720px] prose-legal">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-200 mb-10"
+      >
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to home
+      </a>
+
+      <h1 class="font-[family-name:var(--font-display)] text-[28px] md:text-[36px] leading-[1.2] tracking-[-0.02em] mb-2">
+        Terms of Use
+      </h1>
+      <p class="text-sm text-[var(--color-text-muted)] mb-10">
+        Last updated: February 2025
+      </p>
+
+      <section class="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text)] mb-2">License</h2>
+          <p>
+            DotEdit is open-source software released under the <a href="https://github.com/carlos-andres/DotEdit/blob/main/LICENSE" class="text-[var(--color-accent)] hover:underline" target="_blank" rel="noopener noreferrer">MIT License</a>. You are free to use, copy, modify, and distribute the software in accordance with the license terms.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text)] mb-2">Disclaimer of Warranties</h2>
+          <p>
+            DotEdit is provided "as is" without warranty of any kind, express or implied. The authors do not warrant that the software will be error-free or uninterrupted.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text)] mb-2">Limitation of Liability</h2>
+          <p>
+            In no event shall the authors be liable for any claim, damages, or other liability arising from the use of the software. You use DotEdit at your own risk.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text)] mb-2">Your Responsibility</h2>
+          <p>
+            You are solely responsible for the files you open, edit, and save using DotEdit. Always maintain backups of important configuration files.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text)] mb-2">Changes to These Terms</h2>
+          <p>
+            These terms may be updated occasionally. Changes will be reflected on this page with an updated date. Continued use of the software constitutes acceptance of the revised terms.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text)] mb-2">Contact</h2>
+          <p>
+            Questions about these terms? Open an issue on <a href="https://github.com/carlos-andres/DotEdit" class="text-[var(--color-accent)] hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          </p>
+        </div>
+      </section>
+    </article>
+  </main>
+</BaseLayout>
