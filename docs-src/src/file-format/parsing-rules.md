@@ -24,7 +24,7 @@ The **key** is everything before the first `=`, with surrounding whitespace trim
 ```
 DB_HOST=localhost        → key: "DB_HOST"
   DB_PORT = 3306         → key: "DB_PORT"
-DB_URL=postgres://u:p@h  → key: "DB_URL"  (only first = is the delimiter)
+DB_URL=postgres://localhost  → key: "DB_URL"  (only first = is the delimiter)
 ```
 
 ### Value Detection
@@ -32,9 +32,9 @@ DB_URL=postgres://u:p@h  → key: "DB_URL"  (only first = is the delimiter)
 The **value** is everything after the first `=`. This means values can contain `=` characters:
 
 ```
-DB_URL=postgres://user:pass@host:5432/db?sslmode=require
+DB_URL=postgres://localhost:5432/mydb
 # key: "DB_URL"
-# value: "postgres://user:pass@host:5432/db?sslmode=require"
+# value: "postgres://localhost:5432/mydb"
 ```
 
 ### Whitespace Around `=`
@@ -84,8 +84,8 @@ DB_HOST=localhost # production server
 Inside **quoted** values, `#` is always literal:
 
 ```
-DB_PASS="my#secret"
-# value: "my#secret"
+DB_PASS="my-value"
+# value: "my-value"
 ```
 
 ## Blank Lines

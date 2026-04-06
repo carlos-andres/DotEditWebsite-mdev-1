@@ -18,16 +18,16 @@ The most common format. Everything after the `=` is the value:
 ```
 DB_HOST=localhost
 APP_URL=http://localhost:3000
-API_KEY=abc123def456
+API_KEY=sample
 ```
 
 Unquoted values include everything on the line — including spaces and `#` characters:
 
 ```
 GREETING=Hello World
-DB_PASS=my#secret
+DB_PASS=my-value
 # value of GREETING: "Hello World"
-# value of DB_PASS: "my#secret"
+# value of DB_PASS: "my-value"
 ```
 
 ## Single-Quoted Values
@@ -35,8 +35,8 @@ DB_PASS=my#secret
 Wrapped in single quotes. The content is literal — no escape sequences are processed:
 
 ```
-DB_PASS='my "special" password'
-# Parsed value: my "special" password
+DB_PASS='my "special" value'
+# Parsed value: my "special" value
 ```
 
 Single quotes are useful when values contain double quotes or special characters.
@@ -66,9 +66,9 @@ with backticks`
 DotEdit compares parsed values — the content inside the quotes, without the quote characters themselves:
 
 ```
-# These are considered EQUAL — same parsed value "my secret":
-DB_PASS="my secret"
-DB_PASS='my secret'
+# These are considered EQUAL — same parsed value "my-sample":
+DB_PASS="my-sample"
+DB_PASS='my-sample'
 ```
 
 The quote style is preserved on each side but doesn't affect the diff result.
@@ -87,10 +87,10 @@ DotEdit reads subsequent lines until it finds the matching closing quote.
 ### Example
 
 ```
-PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
-MIIBogIBAAJBALRiMLAHudeSA/x3hB2f+2NRkJLA
-hN1gxVMq2g9+JCt0Gvcopq8hfFN0ZFg
------END RSA PRIVATE KEY-----"
+PRIVATE_KEY="-----BEGIN EXAMPLE KEY-----
+your-secret-key-goes-here
+your-secret-key-goes-here
+-----END EXAMPLE KEY-----"
 ```
 
 This is parsed as a single entry with key `PRIVATE_KEY`. The entire block — from the opening `"` on line 1 through the closing `"` on line 4 — is one multiline value.

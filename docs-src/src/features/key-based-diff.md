@@ -62,9 +62,9 @@ DB_HOST=localhost
 Quoted values are compared by their inner content:
 
 ```
-# The parsed values are both "my secret" — EQUAL:
-DB_PASS="my secret"
-DB_PASS='my secret'
+# The parsed values are both "my-sample" — EQUAL:
+DB_PASS="my-sample"
+DB_PASS='my-sample'
 ```
 
 ## Sequential Mode
